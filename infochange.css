@@ -45,10 +45,11 @@ H2{
 .login-id-wrap{
 	margin-top:20px;
 	margin-bottom:20px;
-	text-align: center;
+	margin-left:45px;
+	text-align: left;
 }
 #input-id{
-  	width: 300px;
+  	width: 200px;
   	height: 32px;
   	font-size: 15px;
   	border: 0;
@@ -57,12 +58,26 @@ H2{
 	padding-left: 10px;
 	background-color: rgb(233, 233, 233);
 }
-.login-pw-wrap{
+#input-id-check{
+	margin-left :10px;
+	width:80px;
+	height:32px;
+	font-size:15px;
+	border:0;
+	border-radius:15px;
+	background-color: rgb(233, 233, 280);
+	
+}
+#input-id-check:active{
+	background-color:#0080ff;
+	color:white;
+}
+.login-pw-wrap-1{
 	margin-top:20px;
 	margin-bottom:20px;
 	text-align:center;
 }
-#input-pw{
+#input-pw-1{
 	width: 300px;
 	height: 32px;
 	font-size: 15px;
@@ -72,31 +87,71 @@ H2{
 	padding-left: 10px;
 	background-color: rgb(233, 233, 233);
 }
-.under-login{/*자동로그인*/
-	float:left;
-	margin-left:50px;
-	margin-top:10px;
 
+.login-pw-wrap-2{
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:center;
 }
-.idpw-find{/*아이디비번찾기*/
-	float:right;
-	margin-right:50px;
-	margin-top:10px;
+#input-pw-2{
+	width: 300px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
+}
 
+.login-name{
+	margin-top:20px;
+	margin-bottom:20px;
+	margin-left:45px;
+}
+#input-name{
+	width: 200px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
+}
+.login-nickname{
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:center;
+}
+#input-nickname{
+	width: 300px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
 }
 
-.login-btn-wrap{/*로그인박스*/
-	margin-top:40px;
-	text-align: center;
+.login-phonenumber{
+	margin-top:20px;
+	margin-bottom:20px;
+	text-align:center;
 }
-#login-btn{
-	width:300px;
-	height:35px;
-	border:0;
-	border-radius:3px;
-	background-color: #0080ff;
-	color: white;	
+#input-phonenumber{
+	width: 300px;
+	height: 32px;
+	font-size: 15px;
+	border: 0;
+	border-radius: 15px;
+	outline: none;
+	padding-left: 10px;
+	background-color: rgb(233, 233, 233);
 }
+
+
 .signup-btn-wrap{ /*회원가입박스*/
 	margin-top:20px;
 	text-align: center;
@@ -110,4 +165,3 @@ H2{
 	background-color: #0080ff;
 	color: white;	
 }
-

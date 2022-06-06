@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tripview 회원가입</title>
+    <link rel="stylesheet" href="infochange.css">
+    <script src="infochange.js"></script>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="https://www.naver.com" title="메인 페이지"><img src="Tripview.png" class="image"></a>
+    </div>
+
+    <section class="login-wrap">
+        
+        <H2>개인정보 변경</H2>
+        <div class="login-id-wrap">
+            <input type="text" id="input-id" placeholder="아이디"></input>
+            <button id="input-id-check" >중복체크</button>
+        </div>
+
+        <div class="login-pw-wrap-1">
+            <input type="password" id="input-pw-1" placeholder="비밀번호"></input>
+        </div>
+        <div class="login-pw-wrap-2">
+            <input type="password" id="input-pw-2" placeholder="비밀번호 확인"></input>
+        </div>
+        <div class="login-name">
+            <input type="text" id="input-name" placeholder="이름"></input>
+            <input type="radio"  name="input-name" value="man">남
+			<input type="radio"  name="input-name" value="woman">여
+            
+        </div>
+        <div class="login-nickname">
+            <input type="text" id="input-nickname" placeholder="닉네임"></input>
+        </div>
+        <div class="login-phonenumber">
+            <input type="text" id="input-phonenumber" placeholder="휴대폰번호"></input>
+        </div>
+        
+        
+        <div class="signup-btn-wrap"><!--회원가입완료 버튼-->
+            <button id="signup-btn" onclick="location.href='login.html'">회원가입</button>
+        </div>
+    </section>
+ 
+
+</body>
