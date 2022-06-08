@@ -1,26 +1,117 @@
-/*이미지 로고부분*/
-.img_logo{
-	margin-bottom: 12px;
-	width: 220px;
-	height: 65px;
+/*기본 세팅*/
+*{
+box-sizing: border-box;	/*길이 계산을 편하게 함*/
 }
-/*로고 끝*/
-/*검색부분*/
 a {
-	text-decoration: none;
+	text-decoration: none;	/*기본 밑줄 제거*/
+	color:#888;
 }
 a:hover{
 	text-decoration: underline;
 }
+header{
+		margin: auto; /* header의 양쪽 여백을 동등하게 맞춤*/
+		width:1080px;
+		height: 215px;
+		display: flex;
+		align-items: center;
+		position: relative;
+}
+fieldset{
+	border: none; /* 기본 border 없애기*/
+}
+.visually-hidden{/* legend 안보이게 설정*/
+		position: absolute !important;
+		height: 1px;
+		width:1px;
+		overflow:hidden;
+		clip: rect(1px 1px 1px 1px);
+		clip: rect(1px, 1px, 1px, 1px);
+		white-space: nowrap;
+	
+}
+.head{
+	width: 100%;
+	height: 30%;
+	float:left;
+}
+.content_land{
+	display: flex;
+	justify-content: space-between;
+}
+.content_land div{
+	display: flex;
+	flex-direction: column;
+}
+.content_land div >a>img {
+	position:relative;
+	width : 80px;		
+	height: 80px;
+}
+/*세팅끝*/
+/*title*/
+.title{
+	display:flex;
+	justify-content: center;
+	background-color: #6bbaff
+}
+#write{
+	width: 100px;
+	height: 50px;
+	border: 2px solid #6bbaff;;
+	float: right;
+	display: flex;
+	align-items: center;
+	margin: auto;
+}
+#write button{
+	flex: 10; 
+    height: 46px;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    background: #6bbaff;;  
+    
+}
+/*title끝*/
+/*링크부분*/
+.links{  /*링크들을 우측상단으로*/
+	position: absolute;
+	top:0;
+	right: 0;
+}
+.link_text{
+	font-size: 10px;
+	margin-left: 5px;
+}
+.link_text{
+	font-size: 10px;
+	margin-left: 5px;
+}
+/*링크 끝*/
+/*이미지 로고부분*/
+.img_logo{
+	margin-bottom: 12px;
+	width: 250px;
+	height: 65px;
+	padding: 10px;
+}
+/*로고 끝*/
+/*검색부분*/
+
 #search{
 	width: 520px;
 	height: 50px;
-	border-style: dotted;
 	border: 2px solid #6bbaff;
 	display: flex;
-	align-items: center;	
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+	
+	
 }
-.search input{
+#search input{
 	flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
     height: 46px;
     padding-left: 12px;
@@ -29,7 +120,7 @@ a:hover{
     outline: none;
     font-size: 18px;
 }
-.search_box button {
+#search button {
     flex: 1; /* search-box내부에서 1만큼의 크기를 차지(비율) */
     height: 46px;
     margin: 0;
@@ -42,13 +133,9 @@ a:hover{
 /*검색부분 끝*/
 
 /*슬라이드 이미지부분*/
-*{
-box-sizing
-:
-border-box;
-}
+
 .slider {
-	width: 600px;
+	width: 1200px;
 	text-align: center;
 	border-radius: 10px;
 	overflow: hidden;
@@ -84,8 +171,8 @@ border-box;
 .slides>div {
 	scroll-snap-align: start;
 	flex-shrink: 0;
-	width: 600px;
-	height: 300px;
+	width: 1200px;
+	height: 200px;
 	margin-right: 50px;
 	border-radius: 10px;
 	overflow: hidden;
