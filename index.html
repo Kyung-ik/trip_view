@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Tripview 메인페이지입니다</title>
@@ -14,13 +14,21 @@
 				<a href="login.html" class="link_text">로그인</a> <a href="signup.html" class="link_text">회원가입</a>
 			</div>
 			<a onclick="window.location.reload()"><img src="./images/Tripview.png" class="img_logo" /></a>
-			<form>
+			<form action="freeList" method="post">
 				<fieldset>
 						<legend class="visually-hidden">검색</legend>
 					<div id="search">
 						<input type="text" maxlength="225" tabindex="1" />
+						<select class="search-select">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+							<option value="writer">작성자</option>
+							<option value="titcont">제목+내용</option>
+						</select>
 						<button type="submit" tabindex="2">검색</button>
 				</div>
+				<input type="hidden" name="pageNum" value="1">
+				<input type="hidden" name="amount" value="10">
 				</fieldset>
 			</form>
 		</div>
@@ -42,10 +50,13 @@
 			<a href="#slide01">1</a> <a href="#slide02">2</a> <a href="#slide03">3</a>
 		</div>
 		
-			<div class="title" style="color:#ffffff"> 지역별 </div>
+			<br>
 			<form>
-			<div id="write"><button type="submit" style="color:#ffffff;">글작성</button></div>
+			<div id="write"><a href="board.html"><input type="button" value="글쓰기" style="color: #ffffff;" class="btn-update"></input></a></div>
 			</form>
+			<br>
+			<br>
+			<div class="title" style="color:#ffffff"> 지역별 </div>
 			
 			
 		<div class="contents">
@@ -55,7 +66,8 @@
 				<div><a href="daegu.html"><img src="images/daegu.jpg" align="top" alt="대구"></a>대구</div>
 				<div><a href="gyeongnam.html"><img src="images/gyeongnam.jpg" align="top" alt="경남"></a>경남</div>
 			</div>
-			
+			<br>
+			<br>
 			<div class="content_land">
 				<div><a href="seoul.html"><img src="images/seoul.jpg" alt="서울" ></a>서울</div>
 				<div><a href="seoul.html"><img src="images/seoul.jpg" alt="서울" ></a>부산</div>
@@ -68,6 +80,7 @@
 				<div><a href="busan.html"><img src="images/busan.jpg" align="top" alt="부산"></a>맛집</div>
 				<div><a href="daegu.html"><img src="images/daegu.jpg" align="top" alt="대구"></a>미술관</div>
 			</div>
+			<br>
 			<div class="title" style="color:#ffffff" > 즐겨찾기 </div>
 			<div class="content_land">
 				<div><a href="seoul.html"><img src="images/seoul.jpg" align="top" alt="서울" ></a>서울</div>
