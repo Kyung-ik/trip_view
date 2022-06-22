@@ -1,0 +1,230 @@
+*{
+	box-sizing: border-box;
+} 
+img {
+	object-fit: cover;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+   body{
+        line-height:2em;        
+        font-family:"맑은 고딕";
+}
+    ul, li{ 
+        list-style:none;
+        text-align:center;
+        padding:0;
+        margin:0;
+}
+
+    #mainWrapper{
+        width: 800px;
+        margin: 0 auto; /*가운데 정렬*/
+    }
+
+    #mainWrapper > ul > li:first-child {
+        text-align: center;
+        font-size:14pt;
+        height:40px;
+        vertical-align:middle;
+        line-height:30px;
+}
+
+    #ulTable {margin-top:10px;}
+    
+
+    #ulTable > li:first-child > ul > li {
+        background-color:#c9c9c9;
+        font-weight:bold;
+        text-align:center;
+}
+
+    #ulTable > li > ul {
+        clear:both;
+        padding:0px auto;
+        position:relative;
+        min-width:40px;
+}
+    #ulTable > li > ul > li { 
+        float:left;
+        font-size:10pt;
+        border-bottom:1px solid silver;
+        vertical-align:baseline;
+}    
+
+    #ulTable > li > ul > li:first-child               {width:10%;} /*No 열 크기*/
+    #ulTable > li > ul > li:first-child +li           {width:35%;} /*제목 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li        {width:20%;} /*작성일 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li+li     {width:15%;} /*작성자 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li+li+li{width:10%;} /*조회수 열 크기*/
+    #ulTable > li > ul > li:first-child +li+li+li+li{width:10%;} /*좋아요 수 열 크기*/
+
+    #divPaging {
+          clear:both; 
+        margin:0 auto; 
+        width:220px; 
+        height:50px;
+}
+
+    #divPaging > div{
+        float:left;
+        width: 100px;
+        height:auto;
+        margin: auto;
+        text-align:center;
+}
+
+    #liSearchOption {clear:both;}
+    #liSearchOption > div {
+        margin:0 auto; 
+        margin-top: 30px; 
+        width:auto; 
+        height:100px;
+
+}
+
+    .left {
+        text-align : left;
+}
+.head{
+	width: 100%;
+	height: 30%;
+	float: left;
+}
+header{
+	margin: auto;
+	width: 1080px;
+	height: 215px;
+	display: flex;
+	align-items: center;
+	position: relative;
+}
+/* 검색 부분*/
+fieldset {
+	border: none; /* 기본 border 없애기*/
+}
+
+.visually-hidden { /* legend 안보이게 설정*/
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip: rect(1px, 1px, 1px, 1px);
+	white-space: nowrap;
+}
+#search {
+	width: 520px;
+	height: 50px;
+	border: 2px solid #00a8ff;
+	display: flex;
+	align-items: center;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#search input {
+	flex: 9; /* search-box내부에서 9만큼의 크기를 차지(비율) */
+	height: 46px;
+	padding-left: 12px;
+	padding-right: 12px;
+	border: none;
+	outline: none;
+	font-size: 18px;
+}
+
+#search button {
+	flex: 1; /* search-box내부에서 1만큼의 크기를 차지(비율) */
+	height: 46px;
+	margin: 0;
+	padding: 0;
+	border: none;
+	outline: none;
+	background: #00a8ff;
+	color: #ffffff;
+}
+
+#search button:active{
+	background-color: #0097e6;
+}
+/*검색 끝*/
+
+/* 로고 상단*/
+.img_logo {
+	margin-bottom: 12px;
+	width: 250px;
+	height: 65px;
+	padding: 10px;
+}
+
+.links { /*링크들을 우측상단으로*/
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.link_text {
+	font-size: 10px;
+	margin-left: 5px;
+}
+
+.link_text {
+	font-size: 10px;
+	margin-left: 5px;
+}
+/* 로고 상단 끝 */
+
+/*글쓰기*/
+#write {
+	width: 100px;
+	height: 50px;
+	border: none;
+	display: flex;
+	align-items: center;
+	margin: auto;
+	border-radius: 20px;
+	float: right;
+}
+
+
+#write input:active {
+	margin-left: 5px;
+	margin-top: 5px;
+	box-shadow: none;
+	background-color: #0097e6
+}
+#write input {
+	flex: 10;
+	width:100px;
+	height:50px;
+	margin: auto;
+	padding: 8px;
+	border: none;
+	font-weight: bold;
+	background-color: #00a8ff;
+	border-radius: 20px;
+	box-shadow: 3px 3px 3px black;
+	transition-duration: 0.3s;
+}
+/*글쓰기 끝*/
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+	
+}
+th{
+	border:none;
+	padding: 10px;
+	background-color: #0097e6;
+	color: #ffffff;
+}
+td{
+	border-bottom: 1px solid #0097e6;
+	padding: 8px;
+}
+
