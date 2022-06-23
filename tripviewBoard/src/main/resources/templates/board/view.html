@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta http-equiv="">
+   <link rel="stylesheet" href="/css/BoardView.css">
+   <script src="https://kit.fontawesome.com/606fff36a9.js" crossorigin="anonymous"></script>
+   <title>trip view board list</title>
+</head>
+<body> 
+<!-- 메인 영역 -->
+<div class="container">
+
+<!-- left side bar영역 영역 -->
+   <div class = "leftsidebar">
+      <header class="main-img">
+       <a href="index"> <img src="/image/tripviewMain.png" alt="tripview Main" width="220px"></a>
+      </header>
+           
+         <div class="side-bar">
+              <ul>
+               <li><a href="#">서 울</a></li>
+               <li><a href="#">강 원</a></li>
+               <li><a href="#">경 기</a></li>
+               <li><a href="#" class="side-list">전 라</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="#">전라북도</a></li>
+                             <li><a href="#">전라남도</a></li>
+                          </ul> 
+                  </div>
+                   </li>   
+               <li><a href="#" class="충청">충 청</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="#">충청북도</a></li>
+                             <li><a href="#">충청남도</a></li>
+                          </ul> 
+                  </div>      
+               </li>
+               <li><a href="#" id="경상">경 상</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="#">경상북도</a></li>
+                             <li><a href="#">경상남도</a></li>
+                          </ul> 
+                  </div>               
+               </li>
+               <li><a href="#">제 주</a></li>
+               <li><a href="#">부 산</a></li>
+               <li><a href="#">대 구</a></li>
+               <li><a href="#">대 전</a></li>
+               <li><a href="#">울 산</a></li>
+               <li><a href="#">광 주</a></li>
+            </ul>
+         </div>   
+   </div>
+<!-- 컨텐츠영역 -->
+
+
+   <div class="contents-container">
+      <form id="frm" action="/board/view/action" method="post">
+         <div class="center-post-button">
+            <div class="float-left">
+               <button type="button" class="btn-previous" onclick="javascript:location.href='/board/list'">돌아가기</button>
+            </div>
+            <div class="float-right">
+               <button type="submit" class="btn-delete" th:formaction="@{delete/{boardid}(boardid=${info.Id})}">삭제</button>
+               <button type="submit" class="btn-update" th:formaction="@{update/{boardid}(boardid=${info.Id})}">수정</button>
+            </div>
+         </div>
+      <table class="contents-container-table">
+            <thead class="center-content">
+                  <tr>
+                        <th style="width: 30%"></th>
+                        <th style="width: 40%"></th>
+                        <th style="width: 30%">
+                        </th>
+                  </tr>
+            </thead>
+            <tbody>
+                  <tr class="content-title-container">
+                        <td colspan="3">
+                              <div class="content-title">   
+                                  <label for="title" class="form-label"></label>
+                                     <input readonly="readonly" type="text" class="form-control" name="title" th:value="${info.title}" >
+                              </div>
+                        </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td></td>
+                     <td>
+                        <div class="content-memberNickname">   
+                            <label for="memberNickname" class="form-label">작성자 : </label>
+                               <input readonly="readonly" type="text" class="form-control" name="memberNickname" th:value="${info.memberNickname}" >
+                        </div>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td colspan="3">
+                           <div id="slide-container">
+                              <div class="album">
+                                 <div class ="images">
+                                    <div><img alt="1" src="image/img1.jpg"></div>         
+                                    <div><img alt="2" src="image/img2.jpg"></div>         
+                                    <div><img alt="3" src="image/img3.jpg"></div>         
+                                    <div><img alt="4" src="image/img4.jpg"></div>         
+                                    <div><img alt="5" src="image/img5.jpg"></div>         
+                                 </div>         
+                                    <span class="prev">&lang;</span>
+                                    <span class="next">&rang;</span>
+                              </div>
+                           </div>
+                        <td>      
+                     </tr>               
+                  <!-- 아이콘 영역 -->
+                  <tr>
+                           <td class ="icon-left">
+                              <div class="grade-container">
+                                 <i class="fa-solid fa-star fa-2x"></i>
+                                 <input readonly="readonly" type="text" class="grade" name="grade" th:value="${info.grade}">
+                              </div>
+                                 
+                           </td>
+                           <td class ="icon-dot">
+                                 <i class="fa-solid fa-circle fa-xs"></i>
+                                 <i class="fa-solid fa-circle fa-xs"></i>
+                                 <i class="fa-solid fa-circle fa-xs"></i>
+                                 <i class="fa-solid fa-circle fa-xs"></i>
+                                 <i class="fa-solid fa-circle fa-xs"></i>
+                              </td>
+                           <td class ="icon-right">
+                                 <i class="fa-solid fa-share-nodes fa-2x"></i>&nbsp;&nbsp;
+                                    <a class="text-dark heart" style="text-decoration-line: none;">
+                                    <img id="likeImg" src='/image/img5.png'>
+                                    </a>
+                     </tr>
+                     <tr class="content-text">   
+                        <td colspan="3">
+                           <label for="content" class="content-text"></label>
+                            <textarea readonly="readonly" class="content-text" rows="5" cols="" name="content" th:text="${info.content}"></textarea>
+                        </td>
+                     </tr>
+                  </tbody>
+            </table>
+         </form>   
+            <table class="contents-container-table">
+                     <tr class="center-review-icon">
+                        <td>
+                           <p><span>댓 글</span></p>
+                        </td>
+                        <td></td>
+                        <td></td>
+                     </tr>
+                     <tr class="center-review">
+                        <td colspan="3">
+                           <div class="center-review-detail">
+                              <textarea rows="7" cols="100"></textarea>
+                              <br>
+                                  글쓴이<br>
+                                  날짜<br>
+                                  댓글<br>
+                              <hr>
+                                  글쓴이<br>
+                                  날짜<br>
+                                  댓글<br>
+                              <hr>
+                                  글쓴이<br>
+                                  날짜<br>
+                                  댓글<br>
+                                 
+                           </div>
+                        </td>
+                     </tr>
+               </table>
+               
+
+   </div>
+<!-- 컨텐츠영역 끝 -->
+
+<!-- right side bar영역 -->   
+   <div class="rightsidebar">
+            <div class="rightside-write-button">
+                  <input type="button" value="글쓰기" class="btn-write" onclick="javascript:location.href='/board/write'">
+            </div>
+            <div class="rightside-tag"> 
+               <ul>
+                  <li><a href="#" class="side-list"><i># ACTIVITY</i></a></li>
+                  <li><a href="#" class="side-list"><i># PHOTO SPOT</i></a></li>
+                  <li><a href="#" class="side-list"><i># NATURE</i></a></li>
+                  <li><a href="#" class="side-list"><i># TRIPVIEW</i></a></li>
+               </ul>
+            </div>            
+            
+            <div class="rightside-record">
+                  <div class="record-frame">
+                     <p>이전 접속기록 출력</p>
+                  </div>
+            </div>   
+      </div>
+      <!-- right side bar 끝 -->   
+      
+</div>
+<!-- 메인 영역 끝-->
+<script th:src="@{/JS/comment.js}"></script>
+<script src="JS/imgSlide.js"></script>
+ <script th:inline="javascript">
+function fnViewDelete() {
+   if (confirm("Do you want to delete it?")) {
+      let frm = $("#frm");
+      frm.attr("action","/board/view/delete");
+      frm.submit();
+   }
+}
+</script>
+
+<!-- 좋아요 스크립트 -->
+<script>
+    $(document).ready(function () {
+        let likeVal = document.getElementById('like_check').value
+        const boardId = $("#boardId").val();
+        const memberId = $("#memberId").val();
+        console.log(memberId);
+        console.log(likeVal);
+        const likeImg = document.getElementById("likeImg")
+
+        if (likeVal > 0) {
+            likeImg.src = "/image/tripviewMain.png";
+        } else {
+            likeImg.src = "/image/img5.png";
+        }
+        // 좋아요 버튼을 클릭 시 실행되는 코드
+        $("#likeImg").on("click", function () {
+            $.ajax({
+                url: '/board/like',
+                type: 'POST',
+                data: {'boardId': boardId, 'memberId': memberId},
+                success: function (data) {
+                    if (data == 1) {
+                        $("#likeImg").attr("src", "/image/tripviewMain.png");
+                        location.href="/board/"+boardId;
+
+                    } else {
+                        $("#likeImg").attr("src", "/image/img5.png");
+                        location.href="/board/"+boardId;
+                    }
+                }, error: function () {
+                    $("#likeImg").attr("src", "/image/tripviewMain.png");
+                    console.log('오타 찾으세요')
+                }
+
+            });
+
+        });
+    });
+</script>
+</body>
+</html>

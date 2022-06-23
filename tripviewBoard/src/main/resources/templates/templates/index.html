@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<button type="button" onclick="location.href='login'">로그인</button><br>
+<button type="button" onclick="location.href='signup'">회원가입</button><br>
+<button type="button" onclick="location.href='update'">개인정보수정</button><br>
+
+<!-- session SID가 null인 경우 로그인 링크, null이 아닌 경우 로그아웃 링크 -->
+
+<a th:href="@{/login}" th:if="${session.SID eq null}" style="text-align: right;">로그인</a>
+
+
+<th:block th:unless="${session.login eq notnull}">
+<label>
+당신의 아이디  [[${session.login.password}]] [[${session.NAME}]] 님
+닉네임 [[${session.NICKNAME}]]</label>
+<a th:href="@{/logout}" style="text-align: right;">로그아웃</a>         
+</th:block>
+</body>
+</html>

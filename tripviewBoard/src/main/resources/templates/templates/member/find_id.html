@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tripview ID찾기</title>
+    <link rel="stylesheet" href="css/find_id.css">
+    <script src="signup.js"></script>
+</head>
+
+<body>
+    <div class="logo">
+        <a th:href="@{/login}" title="메인 페이지"><img src="image/Tripview.png" class="image"></a>
+    </div>
+
+    <section class="login-wrap">
+        <form action="findid" method="post" th:object="${memberDto}">
+	        <H2>아이디 찾기</H2>
+	        <div class="login-name">
+	            <input type="text" name="name" th:field="*{name}" id="input-name" placeholder="이름"></input>
+	        </div>
+	        <div class="login-phonenumber">
+	            <input type="text" name="phonenumber" th:field="*{phonenumber}" id="input-phonenumber" placeholder="휴대폰번호"></input>
+	        </div>
+	        
+	        
+	        <div class="signup-btn-wrap"><!--회원가입완료 버튼-->
+	            <button type="submit" id="signup-btn" >ID찾기</button>
+	        </div>
+        </form>
+    </section>
+ 
+
+</body>
+</html>
+        

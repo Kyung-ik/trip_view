@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tripview 회원가입</title>
+    <link rel="stylesheet" href="css/signup.css">
+    <script src="signup.js"></script>
+    <script type="text/javascript">
+    /* function loginmember(){
+		var loginForm = document.loginForm;
+		var acount = loginform.acount.value;
+		var	password = loginform.password.value;
+		var password2 = loginform.password2.value;
+		var name = loginform.name.value;
+		var gender = loginform.gender.value;
+		var nickname = loginform.nickname.value;
+		var phonenumber = loginform.phonenumber.value;
+		
+		if(acount.length==0 || acount==""){
+			alert("아이디를 입력해주세요.");
+			loginForm.acount.focus();
+		}
+		if(password.length==0 || password==""){
+			alert("비밀번호를 입력해주세요.");
+			loginForm.password.focus();
+		}
+		if(password2.length==0 || password2==""){
+			alert("비밀번호 확인을 입력해주세요.");	
+			loginForm.passwordv2.focus();
+		}
+		if(name.length==0 || name==""){
+			alert("이름을 입력해주세요.");
+			loginForm.name.focus();
+		}
+		if(gender.length==0 || gender==""){
+			alert("성별을 체해주세요.");
+			loginForm.gender.focus();
+		}
+	}  */
+    </script>
+</head>
+
+<body>
+    <div class="logo">
+        <a th:href="@{board/index}" title="메인 페이지"><img src="image/Tripview.png" class="image"></a>
+    </div>
+
+    <section class="login-wrap">
+        <form action="signup" method="post" th:object="${memberDto}">
+	        <H2>회원가입</H2>
+	        <div class="login-id-wrap">
+	            <input type="text" name="acount" th:field="*{acount}" id="input-id" placeholder="아이디"></input>
+	        </div>
+	            <p class="field-error" th:errors="*{acount}"></p>
+	        <div class="login-pw-wrap-1">
+	            <input type="password" name="password" th:field="*{password}" id="input-pw-1" placeholder="비밀번호"></input>
+	        </div>
+	             <p class="field-error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>
+	        <div class="login-pw-wrap-2">
+	            <input type="password" name="password2" th:field="*{password2}" id="input-pw-2" placeholder="비밀번호 확인"></input>
+	        </div>
+	            <p class="field-error" th:if="${#fields.hasErrors('password2')}" th:errors="*{password2}"></p>
+	        <div class="login-name">
+	            <input type="text" name="name" th:field="*{name}" id="input-name" placeholder="이름"></input>
+	            <input type="radio"  name="gender" th:field="*{gender}"  value="man">남
+				<input type="radio"  name="gender" th:field="*{gender}" value="woman">여
+	        </div>
+	            <p class="field-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+	            <p class="field-error" th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}"></p>
+	        <div class="login-nickname">
+	            <input type="text" name="nickname" th:field="*{nickname}" id="input-nickname" placeholder="닉네임"></input>
+	        </div>
+	            <p class="field-error" th:if="${#fields.hasErrors('nickname')}" th:errors="*{nickname}"></p>
+	        <div class="login-phonenumber">
+	            <input type="text" name="phonenumber" th:field="*{phonenumber}" id="input-phonenumber" placeholder="휴대폰번호"></input>
+	        </div>
+	            <p class="field-error" th:if="${#fields.hasErrors('phonenumber')}" th:errors="*{phonenumber}"></p>
+	        
+	        
+	        <div class="signup-btn-wrap"><!--회원가입완료 버튼-->
+	            <button type="submit" id="signup-btn" >회원가입</button>
+	        </div>
+        </form>
+    </section>
+ 
+
+</body>
+</html>
+        

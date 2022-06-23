@@ -1,19 +1,53 @@
 package com.tripviewBoard.springboot.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.tripviewBoard.springboot.model.response.TripviewBoardResponseDto;
+import com.tripviewBoard.springboot.service.TripviewBoardService;
+
+import lombok.AllArgsConstructor;
 
 
+@RequestMapping("/board")
 @Controller
+@AllArgsConstructor
 public class mainController {
-	private static final Logger logger = LoggerFactory.getLogger(mainController.class);
 	
-	//메인 페이지 이동
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
-	public void mainPageGET() {
-		logger.info("메인 페이지 진입");
+	private TripviewBoardService boardService;
+
+	
+	@GetMapping("/index")
+	public String home() {
+		return "board/index";
 	}
+	
+	//게시글 목록
+	@GetMapping("/")
+	public String list(Model model, @RequestParam(value="page", defaultValue = "1") Integer pageNum) {
+		List<TripviewBoardResponseDto> boardList = boardService.getBoardlist(pageNum);
+		Integer[] pageList = boardService.getPageList(pageNum);
+		
+		model.addAttribute("boards",pageNum);
+		model.addAttribute("boardList",boardList);
+		model.addAttribute("pageList", pageList);
+		return "board/searchList";
+	}
+	
+	
+	
+	
+	@GetMapping("searchList")	//검색 페이지로 이동
+	public String search(@RequestParam(value="keyword") String keyword,Model model) {
+		List<TripviewBoardResponseDto> boardDtoList = boardService.searchPosts(keyword);
+		model.addAttribute("boardList", boardDtoList);
+		
+		return "board/searchList";
+	}
+	
 }
