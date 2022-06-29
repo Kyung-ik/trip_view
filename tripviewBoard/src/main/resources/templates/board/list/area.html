@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+   <title>Board List</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <!--부트스트랩 css 추가-->
+    <link rel="stylesheet" href="/css/BoardList.css">
+</head>
+<body>
+<!-- 메인 영역 -->
+<div class="container">
+
+<!-- left side bar영역 영역 -->
+   <div class = "leftsidebar">
+      <header class="main-img">
+         <a th:href="@{/}" ><img src="/image/tripviewMain.png" alt="tripview Main" width="100%"></a>
+      </header>
+           
+         <div class="side-bar">
+              <ul>
+               <li><a href="http://localhost:8081/board/list/area/1">서 울</a></li>
+               <li><a href="http://localhost:8081/board/list/area/2">강 원</a></li>
+               <li><a href="http://localhost:8081/board/list/area/3">경 기</a></li>
+               <li><a href="#" class="side-list">전 라</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="http://localhost:8081/board/list/area/4">전라북도</a></li>
+                             <li><a href="http://localhost:8081/board/list/area/5">전라남도</a></li>
+                          </ul> 
+                  </div>
+                   </li>   
+               <li><a href="#" class="충청">충 청</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="http://localhost:8081/board/list/area/6">충청북도</a></li>
+                             <li><a href="http://localhost:8081/board/list/area/7">충청남도</a></li>
+                          </ul> 
+                  </div>      
+               </li>
+               <li><a href="#" id="경상">경 상</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="http://localhost:8081/board/list/area/8">경상북도</a></li>
+                             <li><a href="http://localhost:8081/board/list/area/9">경상남도</a></li>
+                          </ul> 
+                  </div>               
+               </li>
+               <li><a href="http://localhost:8081/board/list/area/10">제 주</a></li>
+               <li><a href="http://localhost:8081/board/list/area/11">부 산</a></li>
+               <li><a href="http://localhost:8081/board/list/area/12">대 구</a></li>
+               <li><a href="http://localhost:8081/board/list/area/13">대 전</a></li>
+               <li><a href="http://localhost:8081/board/list/area/14">울 산</a></li>
+               <li><a href="http://localhost:8081/board/list/area/15">광 주</a></li>
+            </ul>
+         </div>   
+   </div>
+<!-- 컨텐츠영역 -->
+<section class= "list-container">
+      <div class="container">
+              <form action="/list/area" id="frm" method="get">
+              	<div class="top">
+              		<table>
+              			<tr>
+              				<th width="40%">
+			              		<div class="areaName">
+									<i><b># 서 울</b></i>        		
+			              		</div>
+		              		</th>
+		              		<th width="30%">
+		              		</th>
+							<th width="30%">
+			                   <div class="list-button-container">
+			                   <button type="button" class="btn-delete" onclick="">Delete</button>
+			                   </div>
+							</th>
+              		</table>
+                 </div>  
+             <div class="list-list-container">
+                 <div class="list-table">
+                     <div class="thead-strong">
+                   <table class="table">
+                     <thead class="thead-strong">
+                         <tr>
+                             <th width="5%"><input type="checkbox" id="chkAll"></th>
+                             <th width="10%">게시글번호</th>
+                             <th width="">제목</th>
+                             <th width="16%">작성자</th>
+                             <th width="7%">조회수</th>
+                             <th width="7%">좋아요</th>
+                             <th width="20%">작성일</th>
+                         </tr>
+                     </thead>
+                     <tbody id="tbody">
+                        <tr th:each="areaList: ${areaList}">
+                        <td>
+                           <input type="checkbox" name="deleteId" th:value="${areaList.id}">
+                        </td>
+                        <td>
+							<span th:text="${areaList.id}"></span>
+                        </td>
+                        <td>
+                   		  <a th:href="@{http://localhost:8081/board/view(id=${areaList.id})}"><span th:text="${areaList.title}"></span></a>
+                        </td>
+                        <td>
+                           <span th:text="${areaList.memberNickname}"></span>
+                        </td>
+                        <td>
+                           <span th:text="${areaList.readCnt}"></span>
+                        </td>                       	
+                        <td>
+                           <span th:text="${areaList.likeNum}"></span>
+                        </td>                       	
+                        <td>
+                           <span th:text="${areaList.createTime}"></span>
+                        </td>
+                     <tr>
+                     </tbody>
+                 </table>
+                 <br>
+                 
+                          </div>
+             		</div>
+              </div>
+        </form>
+      </div>
+</section>    
+<!-- 컨텐츠영역 끝 -->
+
+<!-- right side bar영역 -->   
+   <div class="rightsidebar">
+         <div class="rightside-write-button">
+               <input type="button" value="글쓰기" class="btn-write" onclick="javascript:location.href='/board/write'">
+         </div>
+         <div class="rightside-tag"> 
+            <ul>
+               <li><a href="#" class="side-list"><i># ACTIVITY</i></a></li>
+               <li><a href="#" class="side-list"><i># PHOTO ZONE</i></a></li>
+               <li><a href="#" class="side-list"><i># NATURE</i></a></li>
+               <li><a href="#" class="side-list"><i># TRIPVIEW</i></a></li>
+            </ul>
+         </div>              
+   </div>
+      <!-- right side bar 끝 -->   
+      
+</div>
+<!-- 메인 영역 끝-->
+
+</body>
+</html>

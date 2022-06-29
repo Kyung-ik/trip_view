@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tripview 로그인</title>
+    <link rel="stylesheet" href="css/login.css">
+    <script src="/login.js"></script>
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+
+<script type="text/javascript">
+	$(function(){
+		console.log("chrlghk");
+	});
+	
+</script>
+<body>
+    <div class="logo">
+        <a th:href="@{/}" title="메인 페이지"><img src="css/Tripview.png" class="image"></a>
+    </div>
+
+    <section class="login-wrap">
+        <form method="post" action="item.html" th:action th:object="${memberDto}">
+        
+        <H2>로그인</H2>
+        <div class="login-id-wrap">
+            <input type="text" name="id" id="input-id" th:field="*{acount}" th:errorclass="field-error" placeholder="아이디를 입력하세요."></input>
+        </div>
+        <div id ="error-div" class="field-error" th:errors="*{acount}"></div>
+
+        <div class="login-pw-wrap">
+            <input type="password" name="password" id="input-pw" th:field="*{password}" th:errorclass="field-error" placeholder="비밀번호를 입력하세요."></input>
+        </div>
+        <div id="error-div" th:if="${#fields.hasGlobalErrors()}">
+        	<p class="field-error" th:each="err : ${#fields.globalErrors()}" th:text="${message}">전체 오류 메시지</p>
+        </div>
+        <div id="error-div" class="field-error" th:errors="*{password}"></div>
+        
+        <div class="under-login"><!--자동로그인 부분-->
+            <span class="stay-check">
+                <input type="checkbox" id="stay-checkbox"></input>
+                <label for="stay-checkbox" id="stay-text">자동로그인</label>
+            </span>
+        </div>
+
+        <div class="idpw-find">
+            <a href="findid" title="ID/PW찾기">ID찾기</a> /
+            <a href="findpw" title="ID/PW찾기">PW찾기</a>
+        </div><br>
+        
+        <div class="login-btn-wrap"><!--로그인 버튼-->
+            <button type="submit" id="login-btn">로그인</button>
+        </div>
+		
+		</form>
+        <div class="signup-btn-wrap"><!--회원가입 버튼-->
+            <button type="button" id="signup-btn" onclick="location.href='signup'">회원가입</button>
+        </div>
+        
+    </section>
+ 
+
+</body>
+</html>
+
+
+        

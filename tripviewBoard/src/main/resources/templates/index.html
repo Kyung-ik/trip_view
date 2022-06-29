@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Tripview 홈페이지입니다</title>
+<link rel="stylesheet" href="/css/TV_main.css">
+<script></script>
+</head>
+<body>
+
+	<header>
+		<div class="head">
+			<div class="links">
+			<a th:href="@{/login}" th:block th:if="${session.login eq null}">로그인</a>
+            <a th:href="@{/logout}" th:unless="${session.login eq notnull}">로그아웃</a>
+			<a th:href="@{/signup}" th:block th:if="${session.login eq null}">회원가입</a>
+			</div>
+			<a onclick="window.location.reload()"><img src="/image/Tripview.png" class="img_logo" /></a>
+			<form action="board/searchList" method="get">
+				<fieldset>
+						<legend class="visually-hidden">검색</legend>
+					<div id="search">
+						<select class="search-select" name="searchType">
+							<option value="title">제목</option>
+							<option value="content">내용</option>
+							<option value="writer">작성자</option>
+							<option value="titcont">제목+내용</option>
+						</select>
+						<input type="text" name="keyword" maxlength="225" tabindex="1" placeholder="검색어를 입력해주세요"/>
+						<button tabindex="2">검색</button>
+				</div>
+				<input type="hidden" name="pageNum" value="1">
+				<input type="hidden" name="amount" value="10">
+				</fieldset>
+			</form>
+		</div>
+		</header>
+		
+		<section>
+			<div class="slider">
+				<div class="slides">
+					<div id="slide01">
+						<img src="/image/slide01.jpg" alt="">
+					</div>
+					<div id="slide02">
+						<img src="/image/slide02.jpg" alt="">
+					</div>
+					<div id="slide03">
+						<img src="/image/slide03.jpg" alt="">
+					</div>
+				</div>
+			<a href="#slide01">1</a> <a href="#slide02">2</a> <a href="#slide03">3</a>
+
+		</div>
+		
+			<br>
+			<form>
+			<div id="write"><input type="button" value="글쓰기" onClick="location.href='http://localhost:8081/board/write'" style="color: #ffffff;" class="btn-update"></input></div>
+					</form>
+			<form>
+			<div id="write"><input type="button" value="전체게시글" onClick="location.href='http://localhost:8081/board/list'" style="color: #ffffff;" class="btn-update"></input></div>
+					</form>
+			<br>
+			<br>
+			<div class="title" style="color:#ffffff"> 지역별 </div>
+			
+			
+		<div class="contents">
+			<div class="content_land">
+				<div><a href="http://localhost:8081/board/list/area/1"><img src="/image/seoul.jpg" align="top" alt="서울" ></a>서울</div>
+				<div><a href="http://localhost:8081/board/list/area/11"><img src="/image/busan.jpg" align="top" alt="부산"></a>부산</div>
+				<div><a href="http://localhost:8081/board/list/area/12"><img src="/image/daegu.jpg" align="top" alt="대구"></a>대구</div>
+				<div><a href="http://localhost:8081/board/list/area/9"><img src="/image/gyeongnam.jpg" align="top" alt="경남"></a>경남</div>
+			</div>
+			<br>
+			<br>
+			<div class="content_land">
+				<div><a href="http://localhost:8081/board/list/area/1"><img src="/image/seoul.jpg" alt="서울" ></a>서울</div>
+				<div><a href="http://localhost:8081/board/list/area/11"><img src="/image/seoul.jpg" alt="서울" ></a>부산</div>
+				<div><a href="http://localhost:8081/board/list/area/12"><img src="/image/seoul.jpg" alt="서울" ></a>대구</div>
+				<div><a href="http://localhost:8081/board/list/area/9"><img src="/image/seoul.jpg" alt="경북" ></a>경북</div>
+			</div>
+			<div class="title" style="color:#ffffff" > 관심사별 </div>
+			<div class="content_land">
+				<div><a href="http://localhost:8081/board/list/area/1"><img src="/image/seoul.jpg" align="top" alt="서울" ></a>액티비티</div>
+				<div><a href="http://localhost:8081/board/list/area/11"><img src="/image/busan.jpg" align="top" alt="부산"></a>맛집</div>
+				<div><a href="http://localhost:8081/board/list/area/12"><img src="/image/daegu.jpg" align="top" alt="대구"></a>미술관</div>
+			</div>
+			<br>
+			<div class="title" style="color:#ffffff" > 즐겨찾기 </div>
+			<div class="content_land">
+				<div><a href="http://localhost:8081/board/list/area/1"><img src="/image/seoul.jpg" align="top" alt="서울" ></a>서울</div>
+				<div><a href="http://localhost:8081/board/list/area/11"><img src="/image/busan.jpg" align="top" alt="부산"></a>부산</div>
+				<div><a href="http://localhost:8081/board/list/area/12"><img src="/image/daegu.jpg" align="top" alt="대구"></a>대구</div>
+				<div><a href="http://localhost:8081/board/list/area/9"><img src="/image/gyeongnam.jpg" align="top" alt="경남"></a>경남</div>
+			</div>
+		</div>
+		</section>
+		
+		<footer>
+		
+		</footer>
+
+</body>
+</html>

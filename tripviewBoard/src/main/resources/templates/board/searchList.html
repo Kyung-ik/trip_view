@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="board/layout/basic">
+<head>
+<meta charset="UTF-8">
+<title>Tripview 검색페이지</title>
+<link rel="stylesheet" href="/css/search.css" >
+<script></script>
+</head>
+<body>
+
+	<header>
+		<div class="head">
+			<div class="links">
+			<a th:href="@{/login}" th:block th:if="${session.login eq null}">로그인</a>
+            <a th:href="@{/logout}" th:unless="${session.login eq notnull}">로그아웃</a>
+			<a th:href="@{/signup}" th:block th:if="${session.login eq null}">회원가입</a>
+			</div>
+			<a th:href="@{/}"><img src="/image/Tripview.png" class="img_logo" /></a>
+			<form action="searchList" method="get">
+				<fieldset>
+					<legend class="visually-hidden">검색</legend>
+					<div id="search">
+						<input type="text" name="keyword" maxlength="225" tabindex="1" placeholder="검색어를 입력해주세요" />
+						<button tabindex="2">검색</button>
+					</div>
+				</fieldset>
+			</form>
+		</div>
+	</header>
+	<br>
+	<form>
+		<div id="write">
+			<input type="button" value="글쓰기"onclick="javascript:location.href='/board/write'"
+				style="color: #ffffff;" class="btn-update"></input>
+		</div>
+	</form>
+	<br>
+	<br>
+
+	<div id="main_search">
+		<ul>
+			<li>검색 목록</li>
+
+			<li>게시판
+					<table>
+					<thead>
+						<th>No</th>
+						<th>제목</th>
+						<th>작성자</th>
+						<th>작성일</th>
+						<th>조회수</th>
+						<th>좋아요 수</th>
+					</thead>
+				<!-- 게시물이 출력 -->
+						<tbody>
+							<tr th:each="boards : ${boardList}">
+								<td><span th:text="${boards.id}"></span></td>
+								<td><a th:href="@{'/board/view?id=' + ${boards.id}}"> <span
+										th:text="${boards.title}"></span>
+								</a></td>
+								<td><span th:text="${boards.member}"></span></td>
+								<td><span
+									th:text="${boards.createTime}"></span>
+								</td>
+								<td><span
+									th:text="${boards.readCnt}"></span>
+								</td>
+								<td><span
+									th:text="${boards.likeNum}"></span>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<!-- 게시판 페이징 -->
+				<ul>
+					<li>
+						<div id="divPaging">
+							<div>
+								<span th:each="pageNum : ${pageList}" th:inline="text">
+								<a th:href="@{'/searchList?page=' + ${pageNum}}">[[${pageNum}]]</a>
+								</span>
+							</div>
+						</div>
+					</li>
+				</ul>
+		</ul>
+	</div>
+
+
+</body>
+</html>

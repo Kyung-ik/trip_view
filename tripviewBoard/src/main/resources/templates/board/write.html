@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="">
+	<link rel="stylesheet" href="/css/BoardWrite.css">
+	<script src="https://kit.fontawesome.com/606fff36a9.js" crossorigin="anonymous"></script>
+	<title>trip view board list</title>
+</head>
+<body> 
+<!-- 메인 영역 -->
+<div class="container">
+
+<!-- left side bar영역 영역 -->
+	<div class = "leftsidebar">
+		<header class="main-img">
+			<a th:href="@{/}" ><img src="/image/tripviewMain.png" alt="tripview Main" width="220px"></a>
+		</header>
+	  		
+			<div class="side-bar">
+        		<ul>
+               <li><a href="http://localhost:8081/board/list/area/1">서 울</a></li>
+               <li><a href="http://localhost:8081/board/list/area/2">강 원</a></li>
+               <li><a href="http://localhost:8081/board/list/area/3">경 기</a></li>
+               <li><a href="#" class="side-list">전 라</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="http://localhost:8081/board/list/area/4">전라북도</a></li>
+                             <li><a href="http://localhost:8081/board/list/area/5">전라남도</a></li>
+                          </ul> 
+                  </div>
+                   </li>   
+               <li><a href="#" class="충청">충 청</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="http://localhost:8081/board/list/area/6">충청북도</a></li>
+                             <li><a href="http://localhost:8081/board/list/area/7">충청남도</a></li>
+                          </ul> 
+                  </div>      
+               </li>
+               <li><a href="#" id="경상">경 상</a>
+                  <div class="sublist">
+                     <ul>
+                             <li><a href="http://localhost:8081/board/list/area/8">경상북도</a></li>
+                             <li><a href="http://localhost:8081/board/list/area/9">경상남도</a></li>
+                          </ul> 
+                  </div>               
+               </li>
+               <li><a href="http://localhost:8081/board/list/area/10">제 주</a></li>
+               <li><a href="http://localhost:8081/board/list/area/11">부 산</a></li>
+               <li><a href="http://localhost:8081/board/list/area/12">대 구</a></li>
+               <li><a href="http://localhost:8081/board/list/area/13">대 전</a></li>
+               <li><a href="http://localhost:8081/board/list/area/14">울 산</a></li>
+               <li><a href="http://localhost:8081/board/list/area/15">광 주</a></li>
+            </ul>
+			</div>   
+	</div>
+<!-- 컨텐츠영역 -->
+
+	<div class="contents-container">
+	
+
+	<div class="container">
+		<form action="/board/write/action" method="post" enctype="multipart/form-data">
+			<div class="center-post-button-container">
+			<div class="center-left-button">
+					<input type="button" value="이전으로" class="btn-write" onclick="javascript:location.href='/board/list'">
+			</div>
+			<div class="center-right-button">
+					<button type="submit" class="btn-update">등록</button>
+			</div>
+			</div>
+			<div class ="writeform">
+			
+			<!--  			
+			<div class="availableYn-checkBox">
+				    <label for="availableYn" class="form-label">나만보기</label>
+				    <input type="checkbox" class="form-label-checkBox" id="" name="availableYn">
+			</div>
+			 -->
+ 			<div class="selectBox">
+ 				<div class="selectBox-grade">
+				    <label for="grade" class="form-label-selectOption">여행지의 점수를 알려주세요</label>
+							 <select name="grade" th:feild="*{gradeCode}">
+							    <option value="none">=== 선택 ===</option>
+							    <option th:each="gradeCode : ${gradeCode}" th:value="${gradeCode.gradeDouble}" th:text="${gradeCode.gradeString}">
+							 </select>
+ 				</div>
+				<div class="selectBox-area">			 
+			    	<label for="area" class="form-label-selectOption">지역을 선택하세요</label>
+						  <select name="area" th:feild="*{areaCode}">
+						    <option value="none">=== 선택 ===</option>
+						    <option th:each="areaCode : ${areaCode}" th:value="${areaCode.areaInt}" th:text="${areaCode.areaString}">
+						  </select>
+				</div>
+			</div>		  
+			<div class="content-title">
+			    <label for="title" class="form-label"><i>REVIEW TITLE</i></label>
+			    <input type="text" class="form-control" id="" name="title">
+			</div>
+			<div class="content-title">
+				<label for="image" class="form-label"><i>REVIEW IMAGE</i></label>
+				            <div class="custom-file" id="inputFile">
+						    	<input name="file" type="file" class="custom-file-input" id="customFile" />
+		             			<label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
+		           			</div>
+					<div class="filebox">
+						<label for="ex_filename" style="font-size: 50px; font-weight: bold;">+</label> 
+						<input type="file" id="ex_filename" class="upload-hidden" accept="image/*">
+					</div>
+			</div>
+			<div class="content-title">
+		    	<label for="content" class="form-label"><i>REVIEW CONTENT</i></label>
+		    	<textarea class="form-control" rows="5" cols="" name="content"></textarea>
+			</div>
+			</div>
+		</form>
+	</div> 
+</div>
+
+<!-- 컨텐츠영역 끝 -->
+
+<!-- right side bar영역 -->	
+<div class="rightsidebar">
+         
+         <div class="rightside-tag"> 
+            <ul>
+               <li><a href="#" class="side-list"><i># ACTIVITY</i></a></li>
+               <li><a href="#" class="side-list"><i># PHOTO ZONE</i></a></li>
+               <li><a href="#" class="side-list"><i># NATURE</i></a></li>
+               <li><a href="#" class="side-list"><i># TRIPVIEW</i></a></li>
+            </ul>
+         </div>              
+   </div>
+	
+		<!-- right side bar 끝 -->	
+		
+</div>
+<!-- 메인 영역 끝-->
+<script src="JS/imgSlide.js"></script>
+</body>
+</html>
+
+
